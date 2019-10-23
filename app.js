@@ -16,7 +16,7 @@ app.get('/', (req,res) => {
 });
 
 //DB connect
-mongoose.connect("mongodb+srv://tameem:91i2ta@cluster0-i1pux.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true }, () =>{
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () =>{
     console.log("Connected");
     
 })
