@@ -5,8 +5,9 @@ const Post = require('../Models/Post');
 
 
 
-router.get('/', (req,res) =>{
-    res.send("Post page");
+router.get('/', async (req,res) =>{
+    const posts = await Post.find();
+    res.json(posts);
 });
 
 router.post('/', async (req,res) =>{
@@ -23,8 +24,14 @@ router.post('/', async (req,res) =>{
 
 });
 
-router.get('/specific', (req,res) =>{
-    res.send("Specific post");
+router.get('/:postId', async (req,res) =>{
+    const post = await Post.findById(req.params.postId);
+    res.json(post);
 });
+
+router.delete('/:postId', async(req,res) =>{
+    await Post.remove({_id: req.params.postId});
+    res.json({status: "200", text: "Post deleted"});
+})
 
 module.exports = router;
