@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>API Reference</title>
+    </head>
+    <body>
+        <div style="padding: 20%;">
+        <div style="width: 100%">
+            <div style="display:inline">'/api/user/register'</div>
+            <div style="float:right">POST. Register new users. Fields - username, name, password</div>
+        </div>
+        <div style="width: 100%">
+            <div style="display:inline">'/api/user/login'</div>
+            <div style="float:right">POST. User login. Fields - username, password</div>
+        </div>
+        <div style="width: 100%">
+            <div style="display:inline">'/posts'</div>
+            <div style="float:right">GET. Pass auth-token header received on login. Sends all posts.</div>
+        </div>
+        <div style="width: 100%">
+            <div style="display:inline">'/posts'</div>
+            <div style="float:right">POST. Pass auth-token header. Fields - In raw format JSON - title and description</div>
+        </div>
+        <div style="width: 100%">
+            <div style="display:inline">'posts/:postId'</div>
+            <div style="float:right">GET. Pass auth-token header. Returns post matching postId</div>
+        </div>
+        <div style="width: 100%">
+            <div style="display:inline">'/posts/:postId'</div>
+            <div style="float:right">DELETE. Pass auth-token header. Deletes post matching postId</div>
+        </div>
+    </div>
+    </body>
+</html>

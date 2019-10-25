@@ -18,7 +18,7 @@ app.use('/api/user', authRoute);
 
 //Routes
 app.get('/', (req,res) => {
-    res.send("Homepage");
+    res.sendFile(__dirname + '/index.html');
 });
 
 //DB connect
