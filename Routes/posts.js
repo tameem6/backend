@@ -3,7 +3,7 @@ const router = express.Router();
 const verify = require('./verifyToken');
 
 const Post = require('../Models/Post');
-
+const {postValidation} = require('../validation');
 
 
 router.get('/', verify, async (req,res) =>{
@@ -12,6 +12,10 @@ router.get('/', verify, async (req,res) =>{
 });
 
 router.post('/', verify, async (req,res) =>{
+    const {error} = postValidation(req.body);
+    if(error) {
+        return res.status(400).send(error.details[0].message);
+    }
     const post = new Post({
         title: req.body.title,
         description: req.body.description
