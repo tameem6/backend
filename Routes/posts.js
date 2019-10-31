@@ -8,7 +8,12 @@ const {postValidation} = require('../validation');
 
 router.get('/', verify, async (req,res) =>{
     const posts = await Post.find();
+    if(posts.length === 0) {
+        res.status(404).json({"message": "No data available"});
+    }
+    else {
     res.json(posts);
+    }
 });
 
 router.post('/', verify, async (req,res) =>{
